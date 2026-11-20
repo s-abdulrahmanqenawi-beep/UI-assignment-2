@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Laptop Finder | Saved Favorites</title>
+    <link rel="stylesheet" href="./dist/output.css" />
+</head>
+
+<body>
+    <!-- Shared Navigation Header -->
+    <header class="bg-surface border-b border-border sticky top-0 z-40 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Brand Logo -->
+                <a href="index.html" class="flex items-center gap-2 font-bold text-lg sm:text-xl text-text">
+                    <span class="text-accent">💻</span>
+                    <span>Student Laptop Finder</span>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+                    <a href="index.html" class="text-muted hover:text-accent transition-colors">Home</a>
+                    <a href="laptops.html" class="text-muted hover:text-accent transition-colors">Catalogue</a>
+                    <a href="details.html?id=1" class="text-muted hover:text-accent transition-colors">Laptop
+                        Details</a>
+                    <a href="favorites.html" class="text-accent font-bold inline-flex items-center gap-1.5">
+                        <span>Favorites</span>
+                        <span data-fav-count class="badge-pill">0</span>
+                    </a>
+                    <a href="compare.html" class="text-muted hover:text-accent transition-colors">Compare</a>
+                </nav>
+
+                <!-- Theme Switch & Mobile Menu Button -->
+                <div class="flex items-center gap-2">
+                    <button type="button" data-theme-toggle class="btn-outline text-xs sm:text-sm px-3 py-1.5">
+                        🔋 Battery Saver Mode
+                    </button>
+                    <button type="button" id="mobile-menu-btn" class="md:hidden btn-outline p-2"
+                        aria-label="Toggle Menu">
+                        ☰
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Collapsible Mobile Menu -->
+        <div id="mobile-menu"
+            class="hidden md:hidden border-t border-border bg-surface px-4 py-3 space-y-2 text-sm font-medium">
+            <a href="index.html" class="block py-1.5 text-muted hover:text-accent">Home</a>
+            <a href="laptops.html" class="block py-1.5 text-muted hover:text-accent">Catalogue</a>
+            <a href="details.html?id=1" class="block py-1.5 text-muted hover:text-accent">Laptop Details</a>
+            <a href="favorites.html" class="block py-1.5 text-accent font-bold">
+                Favorites (<span data-fav-count>0</span>)
+            </a>
+            <a href="compare.html" class="block py-1.5 text-muted hover:text-accent">Compare</a>
+        </div>
+    </header>
+
+    <!-- Main Favorites Content -->
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+        <!-- Page Header & Actions -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+                <h1 class="text-2xl sm:text-3xl font-extrabold text-text">Saved Favorites</h1>
+                <p class="text-sm text-muted">Review your shortlisted laptops, check budget totals, or head to
+                    side-by-side comparison.</p>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-3">
+                <a href="compare.html" class="btn-action text-sm">
+                    ⚖️ Compare Selected
+                </a>
+                <button type="button" id="clear-favorites-btn" class="btn-outline text-sm">
+                    🗑️ Clear All Favorites
+                </button>
+            </div>
+        </div>
+
+        <!-- Totals & Summary Bar -->
+        <section aria-label="Favorites price summary" class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div class="bg-surface border border-border rounded-xl p-5 shadow-sm">
+                <p class="text-sm text-muted font-medium">Saved Laptops</p>
+                <p id="fav-total-count" class="text-3xl font-extrabold text-accent mt-1">0</p>
+            </div>
+
+            <div class="bg-surface border border-border rounded-xl p-5 shadow-sm">
+                <p class="text-sm text-muted font-medium">Total Combined Price</p>
+                <p id="fav-total-price" class="text-3xl font-extrabold text-accent mt-1">$0.00</p>
+            </div>
+
+            <div class="bg-surface border border-border rounded-xl p-5 shadow-sm">
+                <p class="text-sm text-muted font-medium">Average Laptop Price</p>
+                <p id="fav-avg-price" class="text-3xl font-extrabold text-accent mt-1">$0.00</p>
+            </div>
+        </section>
+
+        <!-- Saved Favorites Cards Grid -->
+        <section aria-label="Saved laptops list">
+            <div id="favorites-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Skeletons, empty state, or saved laptop cards rendered dynamically via JS -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Shared Footer -->
+    <footer class="bg-surface border-t border-border mt-12">
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted">
+            <p>© 2026 Student Laptop Finder — SW302 User Interface Development</p>
+            <div class="flex gap-4">
+                <a href="index.html" class="hover:text-accent transition-colors">Home</a>
+                <a href="laptops.html" class="hover:text-accent transition-colors">Catalogue</a>
+                <a href="compare.html" class="hover:text-accent transition-colors">Compare</a>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="./js/favorites.js"></script>
+</body>
+
+</html>

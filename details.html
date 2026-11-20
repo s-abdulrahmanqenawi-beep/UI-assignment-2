@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Laptop Finder | Laptop Details</title>
+    <link rel="stylesheet" href="./dist/output.css" />
+</head>
+
+<body>
+    <!-- Shared Navigation Header -->
+    <header class="bg-surface border-b border-border sticky top-0 z-40 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Brand Logo -->
+                <a href="index.html" class="flex items-center gap-2 font-bold text-lg sm:text-xl text-text">
+                    <span class="text-accent">💻</span>
+                    <span>Student Laptop Finder</span>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+                    <a href="index.html" class="text-muted hover:text-accent transition-colors">Home</a>
+                    <a href="laptops.html" class="text-muted hover:text-accent transition-colors">Catalogue</a>
+                    <a href="details.html?id=1" class="text-accent font-bold">Laptop Details</a>
+                    <a href="favorites.html"
+                        class="text-muted hover:text-accent transition-colors inline-flex items-center gap-1.5">
+                        <span>Favorites</span>
+                        <span data-fav-count class="badge-pill">0</span>
+                    </a>
+                    <a href="compare.html" class="text-muted hover:text-accent transition-colors">Compare</a>
+                </nav>
+
+                <!-- Theme Switch & Mobile Menu Button -->
+                <div class="flex items-center gap-2">
+                    <button type="button" data-theme-toggle class="btn-outline text-xs sm:text-sm px-3 py-1.5">
+                        🔋 Battery Saver Mode
+                    </button>
+                    <button type="button" id="mobile-menu-btn" class="md:hidden btn-outline p-2"
+                        aria-label="Toggle Menu">
+                        ☰
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Collapsible Mobile Menu -->
+        <div id="mobile-menu"
+            class="hidden md:hidden border-t border-border bg-surface px-4 py-3 space-y-2 text-sm font-medium">
+            <a href="index.html" class="block py-1.5 text-muted hover:text-accent">Home</a>
+            <a href="laptops.html" class="block py-1.5 text-muted hover:text-accent">Catalogue</a>
+            <a href="details.html?id=1" class="block py-1.5 text-accent font-bold">Laptop Details</a>
+            <a href="favorites.html" class="block py-1.5 text-muted hover:text-accent">
+                Favorites (<span data-fav-count>0</span>)
+            </a>
+            <a href="compare.html" class="block py-1.5 text-muted hover:text-accent">Compare</a>
+        </div>
+    </header>
+
+    <!-- Main Laptop Details Content -->
+    <main class="flex-1 max-w-5xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
+        <div>
+            <a href="laptops.html" class="text-sm font-semibold text-accent hover:underline">
+                ← Back to Catalogue
+            </a>
+        </div>
+
+        <div id="details-container">
+            <!-- Skeleton, error message, or full laptop details rendered dynamically via JS -->
+        </div>
+    </main>
+
+    <!-- Shared Footer -->
+    <footer class="bg-surface border-t border-border mt-12">
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted">
+            <p>© 2026 Student Laptop Finder — SW302 User Interface Development</p>
+            <div class="flex gap-4">
+                <a href="index.html" class="hover:text-accent transition-colors">Home</a>
+                <a href="laptops.html" class="hover:text-accent transition-colors">Catalogue</a>
+                <a href="compare.html" class="hover:text-accent transition-colors">Compare</a>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="./js/details.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Laptop Finder | Home</title>
+    <link rel="stylesheet" href="./dist/output.css" />
+</head>
+
+<body>
+    <!-- Shared Navigation Header -->
+    <header class="bg-surface border-b border-border sticky top-0 z-40 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Brand Logo -->
+                <a href="index.html" class="flex items-center gap-2 font-bold text-lg sm:text-xl text-text">
+                    <span class="text-accent">💻</span>
+                    <span>Student Laptop Finder</span>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+                    <a href="index.html" class="text-accent font-bold">Home</a>
+                    <a href="laptops.html" class="text-muted hover:text-accent transition-colors">Catalogue</a>
+                    <a href="details.html?id=1" class="text-muted hover:text-accent transition-colors">Laptop
+                        Details</a>
+                    <a href="favorites.html"
+                        class="text-muted hover:text-accent transition-colors inline-flex items-center gap-1.5">
+                        <span>Favorites</span>
+                        <span data-fav-count class="badge-pill">0</span>
+                    </a>
+                    <a href="compare.html" class="text-muted hover:text-accent transition-colors">Compare</a>
+                </nav>
+
+                <!-- Theme Switch & Mobile Menu Button -->
+                <div class="flex items-center gap-2">
+                    <button type="button" data-theme-toggle class="btn-outline text-xs sm:text-sm px-3 py-1.5">
+                        🔋 Battery Saver Mode
+                    </button>
+                    <button type="button" id="mobile-menu-btn" class="md:hidden btn-outline p-2"
+                        aria-label="Toggle Menu">
+                        ☰
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Collapsible Mobile Menu -->
+        <div id="mobile-menu"
+            class="hidden md:hidden border-t border-border bg-surface px-4 py-3 space-y-2 text-sm font-medium">
+            <a href="index.html" class="block py-1.5 text-accent font-bold">Home</a>
+            <a href="laptops.html" class="block py-1.5 text-muted hover:text-accent">Catalogue</a>
+            <a href="details.html?id=1" class="block py-1.5 text-muted hover:text-accent">Laptop Details</a>
+            <a href="favorites.html" class="block py-1.5 text-muted hover:text-accent">
+                Favorites (<span data-fav-count>0</span>)
+            </a>
+            <a href="compare.html" class="block py-1.5 text-muted hover:text-accent">Compare</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
+        <!-- Hero Introduction Section -->
+        <section class="bg-surface border border-border rounded-2xl p-6 sm:p-10 shadow-sm">
+            <div class="max-w-3xl space-y-4">
+                <span class="badge-pill">Zewail City Student Guide</span>
+                <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-text">
+                    Find the Right Laptop for Your University Journey
+                </h1>
+                <p class="text-base sm:text-lg text-muted leading-relaxed">
+                    Browse curated student laptops across ultrabooks, gaming rigs, 2-in-1 convertibles, creator
+                    workstations, and budget picks. Filter by specs, save your top choices, and compare them side by
+                    side.
+                </p>
+                <div class="flex flex-wrap gap-3 pt-2">
+                    <a href="laptops.html" class="btn-action">Browse All Laptops</a>
+                    <a href="compare.html" class="btn-outline">Compare Favorites</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live Statistics Section -->
+        <section aria-labelledby="stats-heading" class="space-y-4">
+            <div class="flex items-center justify-between">
+                <h2 id="stats-heading" class="text-xl sm:text-2xl font-bold text-text">Live Catalogue Overview</h2>
+                <span class="text-xs text-muted">Calculated dynamically from JSON</span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="bg-surface border border-border rounded-xl p-5 shadow-sm">
+                    <p class="text-sm text-muted font-medium">Available Laptops</p>
+                    <p id="stat-total" class="text-3xl font-extrabold text-accent mt-1">--</p>
+                </div>
+
+                <div class="bg-surface border border-border rounded-xl p-5 shadow-sm">
+                    <p class="text-sm text-muted font-medium">Starting From (Lowest Price)</p>
+                    <p id="stat-lowest-price" class="text-3xl font-extrabold text-accent mt-1">--</p>
+                </div>
+
+                <div class="bg-surface border border-border rounded-xl p-5 shadow-sm">
+                    <p class="text-sm text-muted font-medium">Saved Favorites</p>
+                    <p id="stat-favorites" class="text-3xl font-extrabold text-accent mt-1">0</p>
+                </div>
+
+                <div class="bg-surface border border-border rounded-xl p-5 shadow-sm">
+                    <p class="text-sm text-muted font-medium">Average Battery Life</p>
+                    <p id="stat-avg-battery" class="text-3xl font-extrabold text-accent mt-1">--</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Laptops Section -->
+        <section aria-labelledby="featured-heading" class="space-y-4">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h2 id="featured-heading" class="text-xl sm:text-2xl font-bold text-text">Top Student Picks</h2>
+                    <p class="text-sm text-muted">Popular choices across campus programs</p>
+                </div>
+                <a href="laptops.html" class="text-sm font-semibold text-accent hover:underline">View full catalogue
+                    →</a>
+            </div>
+
+            <div id="featured-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Skeletons and laptop cards rendered dynamically via JS -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Shared Footer -->
+    <footer class="bg-surface border-t border-border mt-12">
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted">
+            <p>© 2026 Student Laptop Finder — SW302 User Interface Development</p>
+            <div class="flex gap-4">
+                <a href="laptops.html" class="hover:text-accent transition-colors">Catalogue</a>
+                <a href="favorites.html" class="hover:text-accent transition-colors">Favorites</a>
+                <a href="compare.html" class="hover:text-accent transition-colors">Compare</a>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="./js/home.js"></script>
+</body>
+
+</html>
